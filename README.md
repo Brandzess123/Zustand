@@ -19,5 +19,5 @@ Follow the steps below to run the example on your local machine:
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/your-username/zustand-nextjs-example.git
+git clone [https://github.com/your-username/zustand-nextjs-example.git](https://github.com/Brandzess123/Zustand)https://github.com/Brandzess123/Zustand
 cd zustand-nextjs-example
