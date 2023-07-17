@@ -1,39 +1,28 @@
-import React from "react";
-import { useStore } from "../../component/store";
+import React, { useEffect, useState } from "react";
+import useBearStore from "../../component/store";
+
+// ... (store creation code)
+
+export function BearCounter() {
+  const bears = useBearStore((state) => state.bears);
+  return <h1>{bears} around here ...</h1>;
+}
+
+export function Controls() {
+  const increasePopulation = useBearStore((state) => state.increasePopulation);
+  return <button onClick={increasePopulation}>one up</button>;
+}
 
 const ListPage = () => {
-  const { selectedNoteId, setSelectedNoteId } = useStore();
-
-  const handleNoteClick = (noteId) => {
-    setSelectedNoteId(noteId);
-    // Chuyển người dùng đến trang B
-    // Cách chuyển trang tùy thuộc vào cấu trúc của ứng dụng của bạn
-  };
-  console.log(selectedNoteId);
+  useEffect(() => {
+    const test = 100;
+  });
 
   return (
     <div>
-      <h1>List of Notes</h1>
-      <ul>
-        <li
-          className="w-[30%] bg-red-500 border"
-          onClick={() => handleNoteClick(1)}
-        >
-          Note 1
-        </li>
-        <li
-          className="w-[30%] bg-red-500 border"
-          onClick={() => handleNoteClick(2)}
-        >
-          Note 2
-        </li>
-        <li
-          className="w-[30%] bg-red-500 border"
-          onClick={() => handleNoteClick(3)}
-        >
-          Note 3
-        </li>
-      </ul>
+      <BearCounter />
+      <Controls />
+      <h1>giá trị test là: {useBearStore((state) => state.test)}</h1>
     </div>
   );
 };
